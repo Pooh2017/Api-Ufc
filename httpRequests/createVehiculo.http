@@ -1,0 +1,21 @@
+POST http://localhost:8000/api/vehiculos
+Accept: 'application/json'
+
+{
+    "marca" : "Nissan",
+    "modelo": "Xtreme",
+    "placa" : "432-432",
+    "precio_dia" : 855.5
+}
+
+
+###
+PUT http://localhost:8000/api/vehiculos/1
+Accept: 'application/json'
+
+{
+    "marca" : "Nissan",
+    "modelo": "Xtreme",
+    "placa" : "432-432",
+    "precio_dia" : 855.5
+}
