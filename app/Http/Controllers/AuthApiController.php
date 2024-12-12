@@ -21,10 +21,7 @@ class AuthApiController extends Controller
 
         return response()->json([
             'statusText' => 'Registered Successfully',
-            'data'       => [
-                'user'  => $user,
-                'token' => $user->createToken('API TOKEN')->plainTextToken
-            ],
+            'user'       => $user,
         ], 201);
     }
 
@@ -44,8 +41,7 @@ class AuthApiController extends Controller
 
         return response()->json([
             'statusText' => 'Logged in successfully',
-            'data'       => $user,
-            'token'      => $user->createToken('API TOKEN')->plainTextToken
+            'user'       => $user,
         ]);
     }
 

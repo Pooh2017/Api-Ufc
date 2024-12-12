@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class VehiculoController extends Controller
 {
     public function index() {
-        return response()->json(Vehiculo::all()->toArray());
+        return response()->json(Vehiculo::latest()->get()->toArray());
     }
 
     public function show(Vehiculo $vehiculo) {
@@ -23,7 +23,7 @@ class VehiculoController extends Controller
         }
 
         return response()->json([
-            'status' => 'Vehiculo creado correctamente',
+            'status'   => 'Vehiculo creado correctamente',
             'vehiculo' => $vehiculo
         ]);
     }
@@ -37,7 +37,7 @@ class VehiculoController extends Controller
         }
 
         return response()->json([
-            'status' => 'Vehiculo editado correctamente',
+            'status'   => 'Vehiculo editado correctamente',
             'vehiculo' => $vehiculo
         ]);
     }

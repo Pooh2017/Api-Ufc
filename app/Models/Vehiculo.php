@@ -41,7 +41,7 @@ class Vehiculo extends Model
         return Attribute::get(function (): string {
             return $this->foto
                 ? Storage::disk('public')->url($this->foto)
-                : '/car_default.jpeg';
+                : env('APP_URL') . '/car_default.jpeg';
         });
     }
 }

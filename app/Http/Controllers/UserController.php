@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
     public function index() {
-        return response()->json(User::all()->toArray());
+        return response()->json(User::latest()->get()->toArray());
     }
 
     public function show(User $user) {
@@ -24,13 +25,12 @@ class UserController extends Controller
 
         return response()->json([
             'status' => 'User creado correctamente',
-            'user' => $user
+            'user'   => $user
         ]);
     }
 
     public function update(Request $request, User $user) {
-
-        $user->forceFill($request->except('foto', '_method'));
+        $user->forceFill($request->except('foto'));
 
         if ($request->hasFile('foto')) {
             $user->updatePhoto($request->file('foto'));
@@ -38,7 +38,7 @@ class UserController extends Controller
 
         return response()->json([
             'status' => 'User editado correctamente',
-            'user' => $user
+            'user'   => $user
         ]);
     }
 
