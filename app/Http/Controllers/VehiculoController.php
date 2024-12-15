@@ -30,7 +30,7 @@ class VehiculoController extends Controller
 
     public function update(Request $request, Vehiculo $vehiculo) {
 
-        $vehiculo->forceFill($request->except('foto', '_method'));
+        $vehiculo->update($request->except('foto', '_method'));
 
         if ($request->hasFile('foto')) {
             $vehiculo->updatePhoto($request->file('foto'));

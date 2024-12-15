@@ -19,7 +19,5 @@ Route::apiResource('/vehiculos', VehiculoController::class)
      ->names('vehiculo');
 
 Route::apiResource('/users', UserController::class)
-     ->except('create', 'edit', 'update')
+     ->except('create', 'edit')
      ->names('user');
-
-Route::post('/users/{user}/edit', [UserController::class, 'update'])->name('user.update');

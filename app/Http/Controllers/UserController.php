@@ -30,7 +30,7 @@ class UserController extends Controller
     }
 
     public function update(Request $request, User $user) {
-        $user->forceFill($request->except('foto'));
+        $user->update($request->except('foto', "_method"));
 
         if ($request->hasFile('foto')) {
             $user->updatePhoto($request->file('foto'));
