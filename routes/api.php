@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthApiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\FighterController;
 
 Route::post('register', [AuthApiController::class, 'register']);
 Route::post('login', [AuthApiController::class, 'login']);
@@ -21,3 +22,5 @@ Route::apiResource('/vehiculos', VehiculoController::class)
 Route::apiResource('/users', UserController::class)
      ->except('create', 'edit')
      ->names('user');
+
+Route::apiResource('fighters', FighterController::class);
